@@ -8,7 +8,6 @@ export class FormatPipe implements PipeTransform {
   public currencyPipe: CurrencyPipe = new CurrencyPipe('en-US');
   public datePipe: DatePipe = new DatePipe('en-US');
   public decimalPipe: DecimalPipe = new DecimalPipe('en-US');
-
   constructor(private sanitize: DomSanitizer) {}
 
   public transform(input: string | any, args: any): any {
@@ -58,7 +57,6 @@ export class FormatPipe implements PipeTransform {
         return input;
     }
   }
-
   public humanizeBool(input): string {
     switch (input) {
       case true:
