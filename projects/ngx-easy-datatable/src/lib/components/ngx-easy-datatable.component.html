@@ -1,0 +1,81 @@
+<!-- <div class="dataTables_wrapper container-fluid dt-bootstrap4"> -->
+<!-- <div class="row">
+      <div class="col-md-4">
+        <div class="dataTables_length">
+          <label>Show
+            <select class="form-control form-control-sm" [(ngModel)]="config.itemsPerPage">
+              <option value="10"> 10</option>
+              <option value="20"> 20</option>
+              <option value="50"> 50</option>
+              <option value="-1"> All</option>
+            </select> Entries
+          </label>
+        </div>
+      </div>
+      <div class="col-md-4">
+      </div>
+      <div class="col-sm-4">
+        <app-search [headers]="headers" (search)="onSearch($event)"></app-search>
+      </div>
+    </div> -->
+<!-- <div class="row"> -->
+<div class="table-responsive-vertical shadow-z-1 table-border" *ngIf=" tableData && tableData.length> 0">
+  <table class="table table-hover table-mc-light-blue">
+    <thead>
+      <tr>
+        <th *ngIf="config.showSelect" class="select">
+          <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" (click)="selectAll($event);">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description"></span>
+          </label>
+        </th>
+
+        <th *ngFor="let header of headers" (click)="changeSorting(header)" [ngClass]="selectedClass(header)">{{header.formatted_text
+          ? header.formatted_text : header.text}}</th>
+        <th *ngIf="actions.length > 0" class="actions"> Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let data of tableData  | orderBy : convertSorting() | slice: sliceStart : sliceEnd; let odd=odd; let even=even; let i = index;">
+        <td *ngIf="config.showSelect" class="select">
+          <label class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input" [checked]="data.check"
+              (click)="selectItem($event, data);">
+            <span class="custom-control-indicator"></span>
+            <span class="custom-control-description"></span>
+          </label>
+        </td>
+
+        <td *ngFor="let header of headers" [ngClass]="{'has-image': header.type === 'image'}">
+          <div [ngSwitch]="header.type">
+            <div *ngSwitchCase="'image'" class="image"
+              [style.background-image]="'url(' + byString(data, header.text) + ')'"></div>
+            <div *ngSwitchDefault [innerHTML]="byString(data, header.text) | format: header.type"> </div>
+          </div>
+        </td>
+
+        <td *ngIf="actions.length > 0" class="actions">
+          <ul class="icons">
+            <li *ngFor="let action of actions">
+              <a [class]="action.color" (click)="onEvent(data, i, action)" data-toggle="tooltip" data-placement="top"
+                [title]="action.text">
+                <i [class]="action.icon"></i>
+              </a>
+            </li>
+          </ul>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- <div class="col-sm-12">
+          <div class="alert alert-info text-center">
+              <h4 class="alert-heading">No Data</h4>
+              <p>No matching records found</p>
+              </div>
+      </div>
+    </div> -->
+<!-- <app-pagination [totalItems]="totalItems" [pageSize]="config.itemsPerPage" (pageSelect)=onPageChanged($event)></app-pagination> -->

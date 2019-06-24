@@ -1,0 +1,1167 @@
+/* -- Material Design Table style -------------- */
+//colors
+$color_bon_jour_approx: #e0e0e0;
+$white: #fff;
+$color_tapa_approx: #757575;
+$black_12: rgba(0, 0, 0, 0.12);
+$black_24: rgba(0, 0, 0, 0.24);
+$color_wild_sand_approx: #f5f5f5;
+$color_cinderella_approx: #fde0dc;
+$color_your_pink_approx: #f9bdbb;
+$color_carousel_pink_approx: #fce4ec;
+$color_cotton_candy_approx: #f8bbd0;
+$color_amour_approx: #f3e5f5;
+$color_french_lilac_approx: #e1bee7;
+$color_athens_gray_approx: #ede7f6;
+$color_prelude_approx: #d1c4e9;
+$color_periwinkle_gray_approx: #c5cae9;
+$color_blue_chalk_approx: #e7e9fd;
+$color_hawkes_blue_approx: #d0d9ff;
+$color_pattens_blue_approx: #e1f5fe;
+$color_sail_approx: #b3e5fc;
+$color_charlotte_approx: #b2ebf2;
+$color_apple_green_approx: #e0f2f1;
+$color_powder_blue_approx: #b2dfdb;
+$color_snowy_mint_approx: #d0f8ce;
+$color_celadon_approx: #a3e9a4;
+$color_feta_approx: #f1f8e9;
+$color_beryl_green_approx: #dcedc8;
+$color_hint_of_yellow_approx: #f9fbe7;
+$color_tusk_approx: #f0f4c3;
+$color_chilean_heath_approx: #fffde7;
+$color_beeswax_approx: #fff9c4;
+$color_solitaire_approx: #fff8e1;
+$color_buttermilk_approx: #ffecb3;
+$color_sazerac_approx: #fff3e0;
+$color_frangipani_approx: #ffe0b2;
+$color_linen_approx: #fbe9e7;
+$color_romantic_approx: #ffccbc;
+
+//@extend-elements
+//original selectors
+//.table >thead >tr >th, .table >tbody >tr >th, .table >tfoot >tr >th, .table >thead >tr >td, .table >tbody >tr >td, .table >tfoot >tr >td
+%extend_1 {
+  text-align: left;
+  padding: 1.2rem;
+  vertical-align: top;
+  border-top: 0;
+  //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+  transition: all 0.3s ease;
+}
+
+
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 2rem;
+  background-color: $white;
+
+  >thead {
+    >tr {
+      //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+      transition: all 0.3s ease;
+
+      >th {
+        @extend %extend_1;
+        font-weight: 400;
+        color: $color_tapa_approx;
+        vertical-align: bottom;
+        border-bottom: 1px solid $black_12;
+      }
+
+      >td {
+        @extend %extend_1;
+      }
+    }
+
+    &:first-child>tr:first-child {
+      >th {
+        border-top: 0;
+      }
+
+      >td {
+        border-top: 0;
+      }
+    }
+  }
+
+  >tbody {
+    >tr {
+      //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+      transition: all 0.3s ease;
+
+      >th {
+        @extend %extend_1;
+      }
+
+      >td {
+        @extend %extend_1;
+      }
+    }
+
+    +tbody {
+      border-top: 1px solid $black_12;
+    }
+  }
+
+  .table {
+    background-color: $white;
+  }
+
+  .no-border {
+    border: 0;
+  }
+
+  >tfoot>tr {
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: all 0.3s ease;
+
+    >th {
+      @extend %extend_1;
+    }
+
+    >td {
+      @extend %extend_1;
+    }
+  }
+
+  >caption+thead>tr:first-child {
+    >th {
+      border-top: 0;
+    }
+
+    >td {
+      border-top: 0;
+    }
+  }
+
+  >colgroup+thead>tr:first-child {
+    >th {
+      border-top: 0;
+    }
+
+    >td {
+      border-top: 0;
+    }
+  }
+}
+
+.table-condensed {
+  >thead>tr {
+    >th {
+      padding: 0.8rem;
+    }
+
+    >td {
+      padding: 0.8rem;
+    }
+  }
+
+  >tbody>tr {
+    >th {
+      padding: 0.8rem;
+    }
+
+    >td {
+      padding: 0.8rem;
+    }
+  }
+
+  >tfoot>tr {
+    >th {
+      padding: 0.8rem;
+    }
+
+    >td {
+      padding: 0.8rem;
+    }
+  }
+}
+
+.table-bordered {
+  border: 0;
+
+  >thead>tr {
+    >th {
+      border: 0;
+      border-bottom: 1px solid $color_bon_jour_approx;
+      border-bottom-width: 2px;
+    }
+
+    >td {
+      border: 0;
+      border-bottom: 1px solid $color_bon_jour_approx;
+      border-bottom-width: 2px;
+    }
+  }
+
+  >tbody>tr {
+    >th {
+      border: 0;
+      border-bottom: 1px solid $color_bon_jour_approx;
+    }
+
+    >td {
+      border: 0;
+      border-bottom: 1px solid $color_bon_jour_approx;
+    }
+  }
+
+  >tfoot>tr {
+    >th {
+      border: 0;
+      border-bottom: 1px solid $color_bon_jour_approx;
+    }
+
+    >td {
+      border: 0;
+      border-bottom: 1px solid $color_bon_jour_approx;
+    }
+  }
+}
+
+.table-striped {
+  >tbody>tr:nth-child(odd) {
+    >td {
+      background-color: $color_wild_sand_approx;
+    }
+
+    >th {
+      background-color: $color_wild_sand_approx;
+    }
+  }
+
+  &.table-mc-red>tbody>tr:nth-child(odd) {
+    >td {
+      background-color: $color_cinderella_approx;
+    }
+
+    >th {
+      background-color: $color_cinderella_approx;
+    }
+  }
+
+  &.table-mc-pink>tbody>tr:nth-child(odd) {
+    >td {
+      background-color: $color_carousel_pink_approx;
+    }
+
+    >th {
+      background-color: $color_carousel_pink_approx;
+    }
+  }
+
+  &.table-mc-purple>tbody>tr:nth-child(odd) {
+    >td {
+      background-color: $color_amour_approx;
+    }
+
+    >th {
+      background-color: $color_amour_approx;
+    }
+  }
+
+  &.table-mc-deep-purple>tbody>tr:nth-child(odd) {
+    >td {
+      background-color: $color_athens_gray_approx;
+    }
+
+    >th {
+      background-color: $color_athens_gray_approx;
+    }
+  }
+
+  &.table-mc-indigo>tbody>tr:nth-child(odd) {
+    >td {
+      background-color: $color_athens_gray_approx;
+    }
+
+    >th {
+      background-color: $color_athens_gray_approx;
+    }
+  }
+
+  &.table-mc-blue>tbody>tr:nth-child(odd) {
+    >td {
+      background-color: $color_blue_chalk_approx;
+    }
+
+    >th {
+      background-color: $color_blue_chalk_approx;
+    }
+  }
+
+  &.table-mc-light-blue>tbody>tr:nth-child(odd) {
+    >td {
+      background-color: $color_pattens_blue_approx;
+    }
+
+    >th {
+      background-color: $color_pattens_blue_approx;
+    }
+  }
+
+  &.table-mc-cyan>tbody>tr:nth-child(odd) {
+    >td {
+      background-color: $color_pattens_blue_approx;
+    }
+
+    >th {
+      background-color: $color_pattens_blue_approx;
+    }
+  }
+
+  &.table-mc-teal>tbody>tr:nth-child(odd) {
+    >td {
+      background-color: $color_apple_green_approx;
+    }
+
+    >th {
+      background-color: $color_apple_green_approx;
+    }
+  }
+
+  &.table-mc-green>tbody>tr:nth-child(odd) {
+    >td {
+      background-color: $color_snowy_mint_approx;
+    }
+
+    >th {
+      background-color: $color_snowy_mint_approx;
+    }
+  }
+
+  &.table-mc-light-green>tbody>tr:nth-child(odd) {
+    >td {
+      background-color: $color_feta_approx;
+    }
+
+    >th {
+      background-color: $color_feta_approx;
+    }
+  }
+
+  &.table-mc-lime>tbody>tr:nth-child(odd) {
+    >td {
+      background-color: $color_hint_of_yellow_approx;
+    }
+
+    >th {
+      background-color: $color_hint_of_yellow_approx;
+    }
+  }
+
+  &.table-mc-yellow>tbody>tr:nth-child(odd) {
+    >td {
+      background-color: $color_chilean_heath_approx;
+    }
+
+    >th {
+      background-color: $color_chilean_heath_approx;
+    }
+  }
+
+  &.table-mc-amber>tbody>tr:nth-child(odd) {
+    >td {
+      background-color: $color_solitaire_approx;
+    }
+
+    >th {
+      background-color: $color_solitaire_approx;
+    }
+  }
+
+  &.table-mc-orange>tbody>tr:nth-child(odd) {
+    >td {
+      background-color: $color_sazerac_approx;
+    }
+
+    >th {
+      background-color: $color_sazerac_approx;
+    }
+  }
+
+  &.table-mc-deep-orange>tbody>tr:nth-child(odd) {
+    >td {
+      background-color: $color_linen_approx;
+    }
+
+    >th {
+      background-color: $color_linen_approx;
+    }
+  }
+}
+
+.table-hover {
+  >tbody>tr:hover {
+    >td {
+      background-color: $black_12;
+    }
+
+    >th {
+      background-color: $black_12;
+    }
+  }
+
+  &.table-mc-red>tbody>tr:hover {
+    >td {
+      background-color: $color_your_pink_approx;
+    }
+
+    >th {
+      background-color: $color_your_pink_approx;
+    }
+  }
+
+  &.table-mc-pink>tbody>tr:hover {
+    >td {
+      background-color: $color_cotton_candy_approx;
+    }
+
+    >th {
+      background-color: $color_cotton_candy_approx;
+    }
+  }
+
+  &.table-mc-purple>tbody>tr:hover {
+    >td {
+      background-color: $color_french_lilac_approx;
+    }
+
+    >th {
+      background-color: $color_french_lilac_approx;
+    }
+  }
+
+  &.table-mc-deep-purple>tbody>tr:hover {
+    >td {
+      background-color: $color_prelude_approx;
+    }
+
+    >th {
+      background-color: $color_prelude_approx;
+    }
+  }
+
+  &.table-mc-indigo>tbody>tr:hover {
+    >td {
+      background-color: $color_periwinkle_gray_approx;
+    }
+
+    >th {
+      background-color: $color_periwinkle_gray_approx;
+    }
+  }
+
+  &.table-mc-blue>tbody>tr:hover {
+    >td {
+      background-color: $color_hawkes_blue_approx;
+    }
+
+    >th {
+      background-color: $color_hawkes_blue_approx;
+    }
+  }
+
+  &.table-mc-light-blue>tbody>tr:hover {
+    >td {
+      background-color: $color_sail_approx;
+    }
+
+    >th {
+      background-color: $color_sail_approx;
+    }
+  }
+
+  &.table-mc-cyan>tbody>tr:hover {
+    >td {
+      background-color: $color_charlotte_approx;
+    }
+
+    >th {
+      background-color: $color_charlotte_approx;
+    }
+  }
+
+  &.table-mc-teal>tbody>tr:hover {
+    >td {
+      background-color: $color_powder_blue_approx;
+    }
+
+    >th {
+      background-color: $color_powder_blue_approx;
+    }
+  }
+
+  &.table-mc-green>tbody>tr:hover {
+    >td {
+      background-color: $color_celadon_approx;
+    }
+
+    >th {
+      background-color: $color_celadon_approx;
+    }
+  }
+
+  &.table-mc-light-green>tbody>tr:hover {
+    >td {
+      background-color: $color_beryl_green_approx;
+    }
+
+    >th {
+      background-color: $color_beryl_green_approx;
+    }
+  }
+
+  &.table-mc-lime>tbody>tr:hover {
+    >td {
+      background-color: $color_tusk_approx;
+    }
+
+    >th {
+      background-color: $color_tusk_approx;
+    }
+  }
+
+  &.table-mc-yellow>tbody>tr:hover {
+    >td {
+      background-color: $color_beeswax_approx;
+    }
+
+    >th {
+      background-color: $color_beeswax_approx;
+    }
+  }
+
+  &.table-mc-amber>tbody>tr:hover {
+    >td {
+      background-color: $color_buttermilk_approx;
+    }
+
+    >th {
+      background-color: $color_buttermilk_approx;
+    }
+  }
+
+  &.table-mc-orange>tbody>tr:hover {
+    >td {
+      background-color: $color_frangipani_approx;
+    }
+
+    >th {
+      background-color: $color_frangipani_approx;
+    }
+  }
+
+  &.table-mc-deep-orange>tbody>tr:hover {
+    >td {
+      background-color: $color_romantic_approx;
+    }
+
+    >th {
+      background-color: $color_romantic_approx;
+    }
+  }
+}
+
+@media screen and(max-width: 768px) {
+  .table-responsive-vertical {
+    > {
+      .table {
+        margin-bottom: 0;
+        background-color: transparent;
+
+        >thead {
+          display: none;
+        }
+
+        >tfoot {
+          display: none;
+        }
+
+        >tbody {
+          display: block;
+
+          >tr {
+            display: block;
+            border: 1px solid $color_bon_jour_approx;
+            //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+            border-radius: 2px;
+            margin-bottom: 1.6rem;
+
+            >td {
+              background-color: $white;
+              display: block;
+              // vertical-align: middle;
+              text-align: right;
+            }
+
+            >td[data-title]:before {
+              content: attr(data-title);
+              float: left;
+              font-size: inherit;
+              font-weight: 400;
+              color: $color_tapa_approx;
+            }
+          }
+        }
+      }
+
+      .table-bordered {
+        border: 0;
+
+        >tbody>tr>td {
+          border: 0;
+          border-bottom: 1px solid $color_bon_jour_approx;
+
+          &:last-child {
+            border-bottom: 0;
+          }
+        }
+      }
+
+      .table-striped>tbody>tr {
+        >td {
+          background-color: $white;
+
+          &:nth-child(odd) {
+            background-color: $color_wild_sand_approx;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: $white;
+        }
+      }
+
+      .table-hover>tbody>tr {
+        &:hover {
+          background-color: $white;
+
+          >td {
+            background-color: $white;
+          }
+        }
+
+        >td:hover {
+          background-color: $black_12;
+        }
+      }
+    }
+
+    &.shadow-z-1 {
+      //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+      box-shadow: none;
+
+      >.table>tbody>tr {
+        border: none;
+        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        box-shadow: 0 1px 3px 0 $black_12, 0 1px 2px 0 $black_24;
+      }
+    }
+  }
+}
+
+@media screen and(max-width: 767px) {
+  .table-responsive-vertical {
+    .table-striped {
+      &.table-mc-red>tbody>tr {
+        >td {
+          background-color: $white;
+
+          &:nth-child(odd) {
+            background-color: $color_cinderella_approx;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: $white;
+        }
+      }
+
+      &.table-mc-pink>tbody>tr {
+        >td {
+          background-color: $white;
+
+          &:nth-child(odd) {
+            background-color: $color_carousel_pink_approx;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: $white;
+        }
+      }
+
+      &.table-mc-purple>tbody>tr {
+        >td {
+          background-color: $white;
+
+          &:nth-child(odd) {
+            background-color: $color_amour_approx;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: $white;
+        }
+      }
+
+      &.table-mc-deep-purple>tbody>tr {
+        >td {
+          background-color: $white;
+
+          &:nth-child(odd) {
+            background-color: $color_athens_gray_approx;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: $white;
+        }
+      }
+
+      &.table-mc-indigo>tbody>tr {
+        >td {
+          background-color: $white;
+
+          &:nth-child(odd) {
+            background-color: $color_athens_gray_approx;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: $white;
+        }
+      }
+
+      &.table-mc-blue>tbody>tr {
+        >td {
+          background-color: $white;
+
+          &:nth-child(odd) {
+            background-color: $color_blue_chalk_approx;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: $white;
+        }
+      }
+
+      &.table-mc-light-blue>tbody>tr {
+        >td {
+          background-color: $white;
+
+          &:nth-child(odd) {
+            background-color: $color_pattens_blue_approx;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: $white;
+        }
+      }
+
+      &.table-mc-cyan>tbody>tr {
+        >td {
+          background-color: $white;
+
+          &:nth-child(odd) {
+            background-color: $color_pattens_blue_approx;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: $white;
+        }
+      }
+
+      &.table-mc-teal>tbody>tr {
+        >td {
+          background-color: $white;
+
+          &:nth-child(odd) {
+            background-color: $color_apple_green_approx;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: $white;
+        }
+      }
+
+      &.table-mc-green>tbody>tr {
+        >td {
+          background-color: $white;
+
+          &:nth-child(odd) {
+            background-color: $color_snowy_mint_approx;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: $white;
+        }
+      }
+
+      &.table-mc-light-green>tbody>tr {
+        >td {
+          background-color: $white;
+
+          &:nth-child(odd) {
+            background-color: $color_feta_approx;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: $white;
+        }
+      }
+
+      &.table-mc-lime>tbody>tr {
+        >td {
+          background-color: $white;
+
+          &:nth-child(odd) {
+            background-color: $color_hint_of_yellow_approx;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: $white;
+        }
+      }
+
+      &.table-mc-yellow>tbody>tr {
+        >td {
+          background-color: $white;
+
+          &:nth-child(odd) {
+            background-color: $color_chilean_heath_approx;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: $white;
+        }
+      }
+
+      &.table-mc-amber>tbody>tr {
+        >td {
+          background-color: $white;
+
+          &:nth-child(odd) {
+            background-color: $color_solitaire_approx;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: $white;
+        }
+      }
+
+      &.table-mc-orange>tbody>tr {
+        >td {
+          background-color: $white;
+
+          &:nth-child(odd) {
+            background-color: $color_sazerac_approx;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: $white;
+        }
+      }
+
+      &.table-mc-deep-orange>tbody>tr {
+        >td {
+          background-color: $white;
+
+          &:nth-child(odd) {
+            background-color: $color_linen_approx;
+          }
+        }
+
+        &:nth-child(odd) {
+          background-color: $white;
+        }
+      }
+    }
+
+    .table-hover {
+      &.table-mc-red>tbody>tr {
+        &:hover {
+          background-color: $white;
+
+          >td {
+            background-color: $white;
+          }
+        }
+
+        >td:hover {
+          background-color: $color_your_pink_approx;
+        }
+      }
+
+      &.table-mc-pink>tbody>tr {
+        &:hover {
+          background-color: $white;
+
+          >td {
+            background-color: $white;
+          }
+        }
+
+        >td:hover {
+          background-color: $color_cotton_candy_approx;
+        }
+      }
+
+      &.table-mc-purple>tbody>tr {
+        &:hover {
+          background-color: $white;
+
+          >td {
+            background-color: $white;
+          }
+        }
+
+        >td:hover {
+          background-color: $color_french_lilac_approx;
+        }
+      }
+
+      &.table-mc-deep-purple>tbody>tr {
+        &:hover {
+          background-color: $white;
+
+          >td {
+            background-color: $white;
+          }
+        }
+
+        >td:hover {
+          background-color: $color_prelude_approx;
+        }
+      }
+
+      &.table-mc-indigo>tbody>tr {
+        &:hover {
+          background-color: $white;
+
+          >td {
+            background-color: $white;
+          }
+        }
+
+        >td:hover {
+          background-color: $color_periwinkle_gray_approx;
+        }
+      }
+
+      &.table-mc-blue>tbody>tr {
+        &:hover {
+          background-color: $white;
+
+          >td {
+            background-color: $white;
+          }
+        }
+
+        >td:hover {
+          background-color: $color_hawkes_blue_approx;
+        }
+      }
+
+      &.table-mc-light-blue>tbody>tr {
+        &:hover {
+          background-color: $white;
+
+          >td {
+            background-color: $white;
+          }
+        }
+
+        >td:hover {
+          background-color: $color_sail_approx;
+        }
+      }
+
+      &.table-mc-cyan>tbody>tr {
+        &:hover {
+          background-color: $white;
+
+          >td {
+            background-color: $white;
+          }
+        }
+
+        >td:hover {
+          background-color: $color_charlotte_approx;
+        }
+      }
+
+      &.table-mc-teal>tbody>tr {
+        &:hover {
+          background-color: $white;
+
+          >td {
+            background-color: $white;
+          }
+        }
+
+        >td:hover {
+          background-color: $color_powder_blue_approx;
+        }
+      }
+
+      &.table-mc-green>tbody>tr {
+        &:hover {
+          background-color: $white;
+
+          >td {
+            background-color: $white;
+          }
+        }
+
+        >td:hover {
+          background-color: $color_celadon_approx;
+        }
+      }
+
+      &.table-mc-light-green>tbody>tr {
+        &:hover {
+          background-color: $white;
+
+          >td {
+            background-color: $white;
+          }
+        }
+
+        >td:hover {
+          background-color: $color_beryl_green_approx;
+        }
+      }
+
+      &.table-mc-lime>tbody>tr {
+        &:hover {
+          background-color: $white;
+
+          >td {
+            background-color: $white;
+          }
+        }
+
+        >td:hover {
+          background-color: $color_tusk_approx;
+        }
+      }
+
+      &.table-mc-yellow>tbody>tr {
+        &:hover {
+          background-color: $white;
+
+          >td {
+            background-color: $white;
+          }
+        }
+
+        >td:hover {
+          background-color: $color_beeswax_approx;
+        }
+      }
+
+      &.table-mc-amber>tbody>tr {
+        &:hover {
+          background-color: $white;
+
+          >td {
+            background-color: $white;
+          }
+        }
+
+        >td:hover {
+          background-color: $color_buttermilk_approx;
+        }
+      }
+
+      &.table-mc-orange>tbody>tr {
+        &:hover {
+          background-color: $white;
+
+          >td {
+            background-color: $white;
+          }
+        }
+
+        >td:hover {
+          background-color: $color_frangipani_approx;
+        }
+      }
+
+      &.table-mc-deep-orange>tbody>tr {
+        &:hover {
+          background-color: $white;
+
+          >td {
+            background-color: $white;
+          }
+        }
+
+        >td:hover {
+          background-color: $color_romantic_approx;
+        }
+      }
+    }
+  }
+}
+
+
+
+// .table thead th {
+//     text-transform: capitalize;
+//   }
+
+//   td.has-image {
+//     width: 50px;
+//     text-align: center;
+//     vertical-align: middle;
+//     .image {
+//       width: 40px;
+//       height: 40px;
+//       background-size: cover;
+//       border-radius: 100%;
+//       background-position: center;
+//     }
+//   }
+
+//   th.actions,
+//   td.actions{
+//     vertical-align: middle;
+//     text-align: center;
+//     width: 10px;
+//     ul.icons {
+//       margin: 0;
+//       padding: 0;
+//       list-style: none;
+//       display: flex;
+//       justify-content: space-around;
+//       li {
+//         cursor: pointer;
+//         padding: 0 5px;
+//         margin:0 7px;
+//       }
+//     }
+//   }
+
+//   th.select,
+//   td.select {
+//     width: 50px;
+//     text-align: center;
+//     vertical-align: middle;
+//     .custom-control {
+//       margin-right: 0;
+//     }
+//   }

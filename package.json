@@ -4,8 +4,25 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "copy:readme": "copyfiles ./README.md ./dist/ngx-easy-datatable",
+    "build": "npm run build:ngx-easy-datatable && npm run build:showcase",
+    "build:ngx-easy-datatable": "npm run copy:readme && ng build ngx-easy-datatable",
+    "build:showcase": "ng build ngx-easy-datatable-showcase --base-href='https://SpencerOdai.github.io/ngx-easy-datatable/'",
+    "format:check": "prettier --list-different 'projects/**/*.ts'",
+    "format:write": "prettier --write 'projects/**/*.ts'",
+    "format-package-json": "npm-run-all format-package-json:*",
+    "format-package-json:ngx-easy-datatable": "prettier --write 'projects/ngx-easy-datatable/package.json'",
+    "format-package-json:main": "prettier --write 'package.json'",
     "test": "ng test",
+    "test:ngx-easy-datatable": "ng test ngx-easy-datatable",
+    "test:ngx-easy-datatable-coverage": "ng test ngx-easy-datatable --code-coverage --watch=false",
+    "report-coverage:ngx-easy-datatable": "cat ./coverage/ngx-easy-datatable/lcov.info | codecov",
+    "publish:showcase": "npx angular-cli-ghpages --dir=./dist/ngx-easy-datatable-showcase",
+    "publish:ngx-easy-datatable": "npx semantic-release",
+    "adjust-version": "npm-run-all adjust-version:*",
+    "adjust-version:ngx-easy-datatable": "rjp projects/ngx-easy-datatable/package.json version $VERSION",
+    "adjust-version:main": "rjp package.json version $VERSION",
+    "semantic-release": "semantic-release",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
@@ -25,13 +42,24 @@
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
+    "@angular-devkit/build-angular": "~0.12.0",
+    "@angular-devkit/build-ng-packagr": "~0.12.0",
     "@angular/cli": "~7.2.1",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
+    "@commitlint/cli": "^8.0.0",
+    "@commitlint/config-conventional": "^8.0.0",
+    "@commitlint/prompt": "^8.0.0",
+    "@semantic-release/changelog": "^3.0.4",
+    "@semantic-release/exec": "^3.3.3",
+    "@semantic-release/git": "^7.0.12",
     "@types/node": "~8.9.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "codecov": "^3.5.0",
     "codelyzer": "~4.5.0",
+    "copyfiles": "^2.1.0",
+    "husky": "^2.4.1",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
     "karma": "~3.1.1",
@@ -39,9 +67,38 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "lint-staged": "^8.2.1",
+    "ng-packagr": "^4.2.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
     "protractor": "~5.4.0",
+    "replace-json-property": "^1.4.1",
+    "semantic-release": "^15.13.16",
     "ts-node": "~7.0.0",
+    "tsickle": ">=0.34.0",
+    "tslib": "^1.9.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "projects/**/*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/SpencerOdai/ngx-easy-datatable"
   }
 }
